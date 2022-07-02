@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, css } from 'styled-components';
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -13,8 +13,15 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-size: 1.6rem;
-    font-family: ${({ theme }) => theme.font.family.default};
+    ${({ theme }) => css`
+      font-size: 1.6rem;
+      font-family: ${theme.font.family.default};
+      -webkit-font-smoothing: antialiased;
+
+      background-color: ${theme.colors.primaryColor};
+      color: ${theme.colors.white};
+    `}
+
   }
 
   h1, h2, h3, h4, h5, h6 {
